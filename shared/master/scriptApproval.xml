@@ -1,0 +1,19 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<scriptApproval plugin="script-security@1.64">
+  <approvedScriptHashes/>
+  <approvedSignatures>
+    <string>method java.net.HttpURLConnection getResponseCode</string>
+    <string>method java.net.HttpURLConnection setRequestMethod java.lang.String</string>
+    <string>method java.net.URL openConnection</string>
+    <string>method java.net.URLConnection getInputStream</string>
+    <string>method java.net.URLConnection getOutputStream</string>
+    <string>method java.net.URLConnection setDoOutput boolean</string>
+    <string>method java.net.URLConnection setRequestProperty java.lang.String java.lang.String</string>
+    <string>staticMethod org.codehaus.groovy.runtime.DefaultGroovyMethods getText java.io.InputStream</string>
+  </approvedSignatures>
+  <aclApprovedSignatures/>
+  <approvedClasspathEntries/>
+  <pendingScripts/>
+  <pendingSignatures/>
+  <pendingClasspathEntries/>
+</scriptApproval>

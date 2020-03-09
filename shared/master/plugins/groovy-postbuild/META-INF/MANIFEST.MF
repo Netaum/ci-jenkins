@@ -1,0 +1,21 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Built-By: ikedam
+Build-Jdk: 1.8.0_181
+Extension-Name: groovy-postbuild
+Specification-Title: The Jenkins Plugins Parent POM Project
+Implementation-Title: groovy-postbuild
+Implementation-Version: 2.5
+Group-Id: org.jvnet.hudson.plugins
+Short-Name: groovy-postbuild
+Long-Name: Groovy Postbuild
+Url: https://wiki.jenkins.io/display/JENKINS/Groovy+Postbuild+Plugin
+Minimum-Java-Version: 1.8
+Plugin-Version: 2.5
+Hudson-Version: 2.121.1
+Jenkins-Version: 2.121.1
+Plugin-Dependencies: workflow-cps:2.54;resolution:=optional,badge:1.5,
+ matrix-project:1.12,script-security:1.42
+Plugin-Developers: Stefan Wolf:wolfs:,Serban Iordache:beryx:
+

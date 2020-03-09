@@ -1,0 +1,137 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<Tag plugin="workflow-support@3.3">
+  <node class="cps.n.StepEndNode" plugin="workflow-cps@2.74">
+    <parentIds>
+      <string>11</string>
+    </parentIds>
+    <id>12</id>
+    <startId>6</startId>
+  </node>
+  <actions>
+    <wf.a.BodyInvocationAction plugin="workflow-api@2.37"/>
+    <wf.a.TimingAction plugin="workflow-api@2.37">
+      <startTime>1569089278973</startTime>
+    </wf.a.TimingAction>
+    <wf.a.ErrorAction plugin="workflow-api@2.37">
+      <error class="java.io.NotSerializableException">
+        <detailMessage>sun.net.www.protocol.https.HttpsURLConnectionImpl</detailMessage>
+        <cause class="org.jboss.marshalling.TraceInformation" plugin="workflow-support@3.3">
+          <stackTrace/>
+          <suppressedExceptions class="java.util.Collections$UnmodifiableRandomAccessList" resolves-to="java.util.Collections$UnmodifiableList">
+            <c class="list"/>
+            <list reference="../c"/>
+          </suppressedExceptions>
+          <info class="org.jboss.marshalling.TraceInformation$ObjectInfo">
+            <cause class="org.jboss.marshalling.TraceInformation$ObjectInfo">
+              <cause class="org.jboss.marshalling.TraceInformation$FieldInfo">
+                <cause class="org.jboss.marshalling.TraceInformation$ObjectInfo">
+                  <cause class="org.jboss.marshalling.TraceInformation$FieldInfo">
+                    <cause class="org.jboss.marshalling.TraceInformation$ObjectInfo">
+                      <cause class="org.jboss.marshalling.TraceInformation$FieldInfo">
+                        <cause class="org.jboss.marshalling.TraceInformation$ObjectInfo">
+                          <cause class="org.jboss.marshalling.TraceInformation$FieldInfo">
+                            <cause class="org.jboss.marshalling.TraceInformation$ObjectInfo">
+                              <cause class="org.jboss.marshalling.TraceInformation$FieldInfo">
+                                <fieldName>com.cloudbees.groovy.cps.impl.BlockScopeEnv.locals</fieldName>
+                              </cause>
+                              <targetClassName>com.cloudbees.groovy.cps.impl.BlockScopeEnv</targetClassName>
+                              <targetHashCode>618613838</targetHashCode>
+                            </cause>
+                            <fieldName>com.cloudbees.groovy.cps.impl.CallEnv.caller</fieldName>
+                          </cause>
+                          <targetClassName>com.cloudbees.groovy.cps.impl.FunctionCallEnv</targetClassName>
+                          <targetHashCode>170491841</targetHashCode>
+                        </cause>
+                        <fieldName>com.cloudbees.groovy.cps.Continuable.e</fieldName>
+                      </cause>
+                      <targetClassName>org.jenkinsci.plugins.workflow.cps.SandboxContinuable</targetClassName>
+                      <targetHashCode>538577187</targetHashCode>
+                    </cause>
+                    <fieldName>org.jenkinsci.plugins.workflow.cps.CpsThread.program</fieldName>
+                  </cause>
+                  <targetClassName>org.jenkinsci.plugins.workflow.cps.CpsThread</targetClassName>
+                  <targetHashCode>487332444</targetHashCode>
+                </cause>
+                <fieldName>org.jenkinsci.plugins.workflow.cps.CpsThreadGroup.threads</fieldName>
+              </cause>
+              <targetClassName>org.jenkinsci.plugins.workflow.cps.CpsThreadGroup</targetClassName>
+              <targetHashCode>877788997</targetHashCode>
+            </cause>
+            <targetClassName>org.jenkinsci.plugins.workflow.cps.CpsThreadGroup</targetClassName>
+            <targetHashCode>877788997</targetHashCode>
+          </info>
+        </cause>
+        <stackTrace>
+          <trace>org.jboss.marshalling.river.RiverMarshaller.doWriteObject(RiverMarshaller.java:926)</trace>
+          <trace>org.jboss.marshalling.river.BlockMarshaller.doWriteObject(BlockMarshaller.java:65)</trace>
+          <trace>org.jboss.marshalling.river.BlockMarshaller.writeObject(BlockMarshaller.java:56)</trace>
+          <trace>org.jboss.marshalling.MarshallerObjectOutputStream.writeObjectOverride(MarshallerObjectOutputStream.java:50)</trace>
+          <trace>org.jboss.marshalling.river.RiverObjectOutputStream.writeObjectOverride(RiverObjectOutputStream.java:179)</trace>
+          <trace>java.io.ObjectOutputStream.writeObject(ObjectOutputStream.java:344)</trace>
+          <trace>java.util.HashMap.internalWriteEntries(HashMap.java:1793)</trace>
+          <trace>java.util.HashMap.writeObject(HashMap.java:1363)</trace>
+          <trace>sun.reflect.GeneratedMethodAccessor30.invoke(Unknown Source)</trace>
+          <trace>sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)</trace>
+          <trace>java.lang.reflect.Method.invoke(Method.java:498)</trace>
+          <trace>org.jboss.marshalling.reflect.JDKSpecific$SerMethods.callWriteObject(JDKSpecific.java:156)</trace>
+          <trace>org.jboss.marshalling.reflect.SerializableClass.callWriteObject(SerializableClass.java:191)</trace>
+          <trace>org.jboss.marshalling.river.RiverMarshaller.doWriteSerializableObject(RiverMarshaller.java:1028)</trace>
+          <trace>org.jboss.marshalling.river.RiverMarshaller.doWriteObject(RiverMarshaller.java:920)</trace>
+          <trace>org.jboss.marshalling.river.RiverMarshaller.doWriteFields(RiverMarshaller.java:1082)</trace>
+          <trace>org.jboss.marshalling.river.RiverMarshaller.doWriteSerializableObject(RiverMarshaller.java:1040)</trace>
+          <trace>org.jboss.marshalling.river.RiverMarshaller.doWriteObject(RiverMarshaller.java:920)</trace>
+          <trace>org.jboss.marshalling.river.RiverMarshaller.doWriteFields(RiverMarshaller.java:1082)</trace>
+          <trace>org.jboss.marshalling.river.RiverMarshaller.doWriteSerializableObject(RiverMarshaller.java:1040)</trace>
+          <trace>org.jboss.marshalling.river.RiverMarshaller.doWriteSerializableObject(RiverMarshaller.java:1019)</trace>
+          <trace>org.jboss.marshalling.river.RiverMarshaller.doWriteObject(RiverMarshaller.java:920)</trace>
+          <trace>org.jboss.marshalling.river.RiverMarshaller.doWriteFields(RiverMarshaller.java:1082)</trace>
+          <trace>org.jboss.marshalling.river.RiverMarshaller.doWriteSerializableObject(RiverMarshaller.java:1040)</trace>
+          <trace>org.jboss.marshalling.river.RiverMarshaller.doWriteSerializableObject(RiverMarshaller.java:1019)</trace>
+          <trace>org.jboss.marshalling.river.RiverMarshaller.doWriteObject(RiverMarshaller.java:920)</trace>
+          <trace>org.jboss.marshalling.river.RiverMarshaller.doWriteFields(RiverMarshaller.java:1082)</trace>
+          <trace>org.jboss.marshalling.river.RiverMarshaller.doWriteSerializableObject(RiverMarshaller.java:1040)</trace>
+          <trace>org.jboss.marshalling.river.RiverMarshaller.doWriteObject(RiverMarshaller.java:920)</trace>
+          <trace>org.jboss.marshalling.river.BlockMarshaller.doWriteObject(BlockMarshaller.java:65)</trace>
+          <trace>org.jboss.marshalling.river.BlockMarshaller.writeObject(BlockMarshaller.java:56)</trace>
+          <trace>org.jboss.marshalling.MarshallerObjectOutputStream.writeObjectOverride(MarshallerObjectOutputStream.java:50)</trace>
+          <trace>org.jboss.marshalling.river.RiverObjectOutputStream.writeObjectOverride(RiverObjectOutputStream.java:179)</trace>
+          <trace>java.io.ObjectOutputStream.writeObject(ObjectOutputStream.java:344)</trace>
+          <trace>java.util.concurrent.ConcurrentSkipListMap.writeObject(ConcurrentSkipListMap.java:1437)</trace>
+          <trace>sun.reflect.GeneratedMethodAccessor230.invoke(Unknown Source)</trace>
+          <trace>sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)</trace>
+          <trace>java.lang.reflect.Method.invoke(Method.java:498)</trace>
+          <trace>org.jboss.marshalling.reflect.JDKSpecific$SerMethods.callWriteObject(JDKSpecific.java:156)</trace>
+          <trace>org.jboss.marshalling.reflect.SerializableClass.callWriteObject(SerializableClass.java:191)</trace>
+          <trace>org.jboss.marshalling.river.RiverMarshaller.doWriteSerializableObject(RiverMarshaller.java:1028)</trace>
+          <trace>org.jboss.marshalling.river.RiverMarshaller.doWriteObject(RiverMarshaller.java:920)</trace>
+          <trace>org.jboss.marshalling.river.RiverMarshaller.doWriteFields(RiverMarshaller.java:1082)</trace>
+          <trace>org.jboss.marshalling.river.RiverMarshaller.doWriteSerializableObject(RiverMarshaller.java:1040)</trace>
+          <trace>org.jboss.marshalling.river.RiverMarshaller.doWriteObject(RiverMarshaller.java:920)</trace>
+          <trace>org.jboss.marshalling.AbstractObjectOutput.writeObject(AbstractObjectOutput.java:58)</trace>
+          <trace>org.jboss.marshalling.AbstractMarshaller.writeObject(AbstractMarshaller.java:111)</trace>
+          <trace>org.jenkinsci.plugins.workflow.support.pickles.serialization.RiverWriter.lambda$writeObject$0(RiverWriter.java:144)</trace>
+          <trace>org.jenkinsci.plugins.scriptsecurity.sandbox.groovy.GroovySandbox.runInSandbox(GroovySandbox.java:237)</trace>
+          <trace>org.jenkinsci.plugins.workflow.support.pickles.serialization.RiverWriter.writeObject(RiverWriter.java:143)</trace>
+          <trace>org.jenkinsci.plugins.workflow.cps.CpsThreadGroup.saveProgram(CpsThreadGroup.java:523)</trace>
+          <trace>org.jenkinsci.plugins.workflow.cps.CpsThreadGroup.saveProgram(CpsThreadGroup.java:499)</trace>
+          <trace>org.jenkinsci.plugins.workflow.cps.CpsThreadGroup.saveProgramIfPossible(CpsThreadGroup.java:486)</trace>
+          <trace>org.jenkinsci.plugins.workflow.cps.CpsThreadGroup.run(CpsThreadGroup.java:410)</trace>
+          <trace>org.jenkinsci.plugins.workflow.cps.CpsThreadGroup.access$200(CpsThreadGroup.java:93)</trace>
+          <trace>org.jenkinsci.plugins.workflow.cps.CpsThreadGroup$2.call(CpsThreadGroup.java:282)</trace>
+          <trace>org.jenkinsci.plugins.workflow.cps.CpsThreadGroup$2.call(CpsThreadGroup.java:270)</trace>
+          <trace>org.jenkinsci.plugins.workflow.cps.CpsVmExecutorService$2.call(CpsVmExecutorService.java:66)</trace>
+          <trace>java.util.concurrent.FutureTask.run(FutureTask.java:266)</trace>
+          <trace>hudson.remoting.SingleLaneExecutorService$1.run(SingleLaneExecutorService.java:131)</trace>
+          <trace>jenkins.util.ContextResettingExecutorService$1.run(ContextResettingExecutorService.java:28)</trace>
+          <trace>jenkins.security.ImpersonatingExecutorService$1.run(ImpersonatingExecutorService.java:59)</trace>
+          <trace>java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)</trace>
+          <trace>java.util.concurrent.FutureTask.run(FutureTask.java:266)</trace>
+          <trace>java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)</trace>
+          <trace>java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)</trace>
+          <trace>java.lang.Thread.run(Thread.java:748)</trace>
+        </stackTrace>
+        <suppressedExceptions class="java.util.Collections$UnmodifiableRandomAccessList" reference="../cause/suppressedExceptions"/>
+      </error>
+    </wf.a.ErrorAction>
+  </actions>
+</Tag>

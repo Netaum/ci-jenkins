@@ -1,0 +1,155 @@
+
+pipeline {
+    agent any
+    
+    parameters {
+        string(name: 'csonline_branch', defaultValue: 'Arg-Sprint2', description: 'CS Online branch to build the docker image')
+        string(name: 'csonline_build', defaultValue: '', description: 'CS Online build number to build the docker image')
+
+        string(name: 'database_branch', defaultValue: 'Arg_Sprint2', description: 'Database branch to build the docker image')
+        string(name: 'database_build', defaultValue: '', description: 'Database build number to build the docker image')
+
+        string(name: 'csextended_branch', defaultValue: '', description: 'CS Extended branch to build the docker image')
+        string(name: 'csextended_build', defaultValue: '1465', description: 'CS Extended build number to build the docker image')
+
+        string(name: 'cscore_branch', defaultValue: '', description: 'CS Core branch to build the docker image')
+        string(name: 'cscore_build', defaultValue: '401', description: 'CS Core build number to build the docker image')
+
+        booleanParam(name: 'CleanWS', defaultValue: false, description: 'Indicates the clean of work space')
+        
+    }
+
+    environment {
+        csonline_download_ok = false
+        csdatabase_download_ok = false
+        csextended_download_ok = false
+        cscore_download_ok = false
+    }
+    
+    stages {
+        stage('Clean') {
+             when {
+                expression { params.CleanWS == true }
+            }
+            steps {
+                cleanWs notFailBuild: true
+            }
+        }
+        stage('Download CS Online'){
+            steps {
+                script {
+                    try { 
+                        def nexus_url = "https://nexus.minhati.com.br/repository/raw/com/raizen/acs/csonline/Deploy/"
+                        def job_name = "ACS-CSOnline-Dev"
+                        def file_name = "./CSOnline/CSOnline.zip"
+                        powershell ".\\Scripts\\Download.ps1 -jobName ${job_name} -branchName ${params.csonline_branch} -fileName ${file_name} -nexusUrl ${nexus_url} -buildNumber ${params.csonline_build}"
+                        csonline_download_ok = true
+                    }
+                    catch(exc) {
+                        echo 'Build disabled'
+                        csonline_download_ok = false
+                    }
+                }
+            }
+        }
+        stage('Build CS Online'){
+            when{
+                expression { csonline_download_ok == true }
+            }
+            steps{
+                script {
+                    dir('CSOnline') {
+                        powershell "docker build -t csonline:latest . "
+                    }
+                }
+            }
+        }
+        stage('Download Database'){
+            steps {
+                script {
+                    try { 
+                        def nexus_url = "https://nexus.minhati.com.br/repository/raw-hosted/com/raizen/acs/csonline/database/"
+                        def job_name = "ACS-Database-Dev"
+                        def file_name = "./Database/csdatabase.zip"
+                        powershell ".\\Scripts\\Download.ps1 -jobName ${job_name} -branchName ${params.database_branch} -fileName ${file_name} -nexusUrl ${nexus_url} -buildNumber ${params.database_build}"
+                        csdatabase_download_ok = true
+                    }
+                    catch (exc) {
+                        echo 'Build disabled'
+                        csdatabase_download_ok = false
+                    }
+                }
+            }
+        }
+        stage('Build Database'){
+            when{
+                expression { csdatabase_download_ok == true }
+            }
+            steps{
+                script {
+                    dir('Database') {
+                        powershell " docker build -t setup_database:latest . "
+                    }
+                }
+            }
+        }
+        stage('Download CSExtended'){
+            steps {
+                script {
+                    try {
+                        def nexus_url = "https://nexus.minhati.com.br/repository/raw-hosted/com/raizen/acs/csapi/csextended/"
+                        def job_name = "ACS-CSApi-CSExtended-Dev"
+                        def file_name = "./CSExtendend/csextended.zip"
+                        powershell ".\\Scripts\\Download.ps1 -jobName ${job_name} -branchName ${params.csextended_branch} -fileName ${file_name} -nexusUrl ${nexus_url} -buildNumber ${params.csextended_build}"
+                        csextended_download_ok = true
+                    }
+                    catch(exc) {
+                        csextended_download_ok = false
+                        echo 'Build disabled'
+                    }
+                }
+            }
+        }
+        stage('Build CSExtended'){
+            when{
+                expression { csextended_download_ok == true }
+            }
+            steps{
+                script {
+                    dir('CSExtendend') {
+                        powershell " docker build -t csextended:latest . "
+                    }
+                }
+            }
+        }
+        stage('Download CSCore'){
+            steps {
+                script {
+                    try { 
+                        def nexus_url = " https://nexus.minhati.com.br/repository/raw-hosted/com/raizen/acs/csapi/cscore/"
+                        def job_name = "ACS-CSApi-CSCore-Dev"
+                        def file_name = "./CSCore/cscore.zip"
+                        powershell ".\\Scripts\\Download.ps1 -jobName ${job_name} -branchName ${params.cscore_branch} -fileName ${file_name} -nexusUrl ${nexus_url} -buildNumber ${params.cscore_build} "
+                        cscore_download_ok = true
+                    }
+                    catch(exc) {
+                        cscore_download_ok = false
+                        echo 'Build disabled'
+                    }
+                }
+            }
+        }
+        stage('Build CSCore'){
+            when{
+                expression { cscore_download_ok == true }
+            }
+            steps{
+                script {
+                    dir('CSCore') {
+                        powershell " docker build -t cscore:latest . "
+                    }
+                }
+            }
+        }
+    }
+}

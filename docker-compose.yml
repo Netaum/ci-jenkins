@@ -1,0 +1,27 @@
+version: '3.1'
+services: 
+  jenkins:
+    container_name: jenkins
+    ports: 
+      - '8080:8080'
+      - '50000:50000'
+    image: jenkins-master:latest
+    build: master/.
+    volumes:
+      - ./shared/master:/var/jenkins_home
+    extra_hosts:
+      - "svn.minhati.com.br:10.200.74.232"
+  jenkins-slave:
+    container_name: jenkins-slave
+    restart: always
+    environment: 
+      - 'JENKINS_URL=http://jenkins:8080'
+    image: jenkins-slave:latest
+    build: slave/.
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./shared/slave:/home/jenkins
+    extra_hosts:
+      - "svn.minhati.com.br:10.200.74.232"
+    depends_on: 
+      - jenkins

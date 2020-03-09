@@ -1,0 +1,21 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Built-By: marc
+Build-Jdk: 1.8.0_172
+Extension-Name: badge
+Specification-Title: Add Badges for a build and extend the build summary
+Implementation-Title: badge
+Implementation-Version: 1.8
+Group-Id: org.jenkins-ci.plugins
+Short-Name: badge
+Long-Name: Badge
+Url: http://wiki.jenkins-ci.org/display/JENKINS/Badge+Plugin
+Plugin-Version: 1.8
+Hudson-Version: 2.60.3
+Jenkins-Version: 2.60.3
+Plugin-Dependencies: workflow-step-api:2.14,antisamy-markup-formatter:
+ 1.5,script-security:1.39,structs:1.14
+Plugin-Developers: Marc Brugger:bakito:,Stefan Wolf:wolfs:,Serban Iord
+ ache:beryx:
+

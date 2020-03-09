@@ -1,0 +1,20 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Built-By: dnusbaum
+Build-Jdk: 1.8.0_161
+Extension-Name: ansicolor
+Specification-Title: Adds ANSI coloring to the Console Output
+Implementation-Title: ansicolor
+Implementation-Version: 0.6.2
+Group-Id: org.jenkins-ci.plugins
+Short-Name: ansicolor
+Long-Name: AnsiColor
+Url: http://wiki.jenkins-ci.org/display/JENKINS/AnsiColor+Plugin
+Plugin-Version: 0.6.2
+Hudson-Version: 2.145
+Jenkins-Version: 2.145
+Plugin-Dependencies: workflow-api:2.30;resolution:=optional,workflow-s
+ tep-api:2.15;resolution:=optional
+Plugin-Developers: Daniel Doubrovkine:dblock:dblock@dblock.org
+

@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<l:dependencies xmlns:l='licenses' groupId='org.jenkins-ci.plugins' artifactId='badge' version='1.8'><l:dependency name='Badge' groupId='org.jenkins-ci.plugins' artifactId='badge' version='1.8' url='http://wiki.jenkins-ci.org/display/JENKINS/Badge+Plugin'><l:description>Add Badges for a build and extend the build summary</l:description><l:license name='The MIT license' url='http://www.opensource.org/licenses/mit-license.php'/></l:dependency></l:dependencies>
