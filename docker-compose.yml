@@ -9,8 +9,7 @@ services:
     build: master/.
     volumes:
       - ./shared/master:/var/jenkins_home
-    extra_hosts:
-      - "svn.minhati.com.br:10.200.74.232"
+    
   jenkins-slave:
     container_name: jenkins-slave
     restart: always
@@ -21,7 +20,6 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - ./shared/slave:/home/jenkins
-    extra_hosts:
-      - "svn.minhati.com.br:10.200.74.232"
+   
     depends_on: 
       - jenkins

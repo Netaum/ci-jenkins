@@ -26,9 +26,9 @@ def get_file(nexus_url, jenkins_url, file_name):
     with open(file_name, 'wb') as f:
         f.write(response.content)
 
-job = 'ACS-CSOnline-Dev'
+job = 'job-Dev'
 branch = 'Arg-Sprint'
-file_name = 'csonline.zip'
-nexus_url = 'https://nexus.minhati.com.br/repository/raw/com/raizen/acs/csonline/Deploy/'
-jenkins_url = 'https://jenkins.minhati.com.br/view/CSOnline/job/{}/api/json?tree=builds[actions[parameters[name,value]],number,status,id,result,changeSets[items[revision,RepositoryUrl]]]'.format(job)
+file_name = 'file.zip'
+nexus_url = 'nexus'
+jenkins_url = '{job}'.format(job)
 get_file(nexus_url, jenkins_url, file_name)

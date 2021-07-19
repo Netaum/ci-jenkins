@@ -27,10 +27,4 @@ ENV SLAVE_LABELS "docker"
 ENV SLAVE_WORING_DIR ""
 ENV CLEAN_WORKING_DIR "true"
 
-COPY ./certificates/CASubIntegrada.cer /usr/local/share/ca-certificates/CASubIntegrada.cer
-RUN chmod 644 /usr/local/share/ca-certificates/CASubIntegrada.cer
-COPY ./certificates/svn.minhati.com.br.cer /usr/local/share/ca-certificates/svn.minhati.com.br.cer
-RUN  chmod 644 /usr/local/share/ca-certificates/svn.minhati.com.br.cer
-RUN update-ca-certificates
-
 CMD [ "python", "-u", "/var/lib/jenkins/slave.py" ]
